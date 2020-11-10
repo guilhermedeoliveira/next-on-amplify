@@ -9,6 +9,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.(graphql|gql)$': 'jest-transform-graphql',
   },
   moduleDirectories: ['node_modules', 'src'],
   coverageDirectory: 'coverage-jest',

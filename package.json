@@ -9,6 +9,7 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "lint:fix": "eslint . --ext ts --ext tsx --ext js --fix",
     "type-check": "tsc --pretty --noEmit",
+    "codegen:graphql": "graphql-codegen",
     "format": "prettier --write .",
     "test:unit": "jest",
     "test:unit:w": "jest --watch",
@@ -19,12 +20,7 @@
     "test:all": "yarn lint && yarn type-check && yarn test:unit",
     "test:ci": "yarn test:all && yarn test:e2e",
     "test:all:cover": "yarn lint && yarn type-check && yarn test:unit:cover && test:e2e",
-    "posttest": "npm run report:combined",
-    "coverage:open": "open coverage/lcov-report/index.html",
-    "coverage:combined": "yarn coverage:copy && coverage:merge && coverage:report",
-    "coverage:copy": "mkdir reports || true && cp coverage-cypress/coverage-final.json reports/from-cypress.json && cp coverage-jest/coverage-final.json reports/from-jest.json",
-    "coverage:merge": "npx nyc merge reports && mv coverage.json .nyc_output/out.json",
-    "coverage:report": "npx nyc report --reporter lcov --reporter text --report-dir coverage"
+    "postinstall": "yarn codegen:graphql"
   },
   "husky": {
     "hooks": {
@@ -73,6 +69,7 @@
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "graphql-tag": "^2.11.0",
     "husky": "^4.3.0",
     "jest": "^26.6.1",
     "jest-transform-graphql": "^2.1.0",
