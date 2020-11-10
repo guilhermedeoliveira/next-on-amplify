@@ -30,9 +30,12 @@
     }
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
+    "*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn format"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
     ]
   },
   "nyc": {
