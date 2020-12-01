@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <h1 className="mb-20 flex pt-16">
           Welcome to Home <a href="https://nextjs.org">Next.js!</a>
         </h1>
 

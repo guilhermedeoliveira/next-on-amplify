@@ -1,0 +1,17 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+@tailwind components;
+
+/* Write your own custom component styles here, example:
+
+.btn-blue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+*/
+
+@tailwind utilities;
+
+/* Your own custom utilities */
