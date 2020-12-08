@@ -1,0 +1,6 @@
+query GetUserByIdExample {
+  userById(id: "1") {
+    entityId
+    entityLabel
+  }
+}
