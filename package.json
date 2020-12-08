@@ -19,8 +19,7 @@
     "test:e2e:open": "cypress open",
     "test:all": "yarn lint && yarn type-check && yarn test:unit",
     "test:ci": "yarn test:all && yarn test:e2e",
-    "test:all:cover": "yarn lint && yarn type-check && yarn test:unit:cover && test:e2e",
-    "postinstall": "yarn codegen:graphql"
+    "test:all:cover": "yarn lint && yarn type-check && yarn test:unit:cover && test:e2e"
   },
   "husky": {
     "hooks": {
@@ -42,10 +41,16 @@
     "report-dir": "coverage-cypress"
   },
   "dependencies": {
+    "@tailwindcss/ui": "^0.7.2",
+    "autoprefixer": "^10.0.2",
+    "classnames": "^2.2.6",
     "graphql": "^15.4.0",
     "next": "10.0.0",
+    "postcss": "^8.1.10",
+    "postcss-nesting": "^7.0.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -58,6 +63,7 @@
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
@@ -77,6 +83,8 @@
     "jest": "^26.6.1",
     "jest-transform-graphql": "^2.1.0",
     "lint-staged": "^10.5.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "typescript": "^4.0.5"
   }
