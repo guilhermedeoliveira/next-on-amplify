@@ -17,9 +17,9 @@
     "test:unit:cover:w": "jest --watch --coverage",
     "test:e2e": "./node_modules/.bin/cypress run",
     "test:e2e:open": "cypress open",
-    "test:all": "yarn lint && yarn type-check && yarn test:unit",
     "test:ci": "yarn test:all && yarn test:e2e",
-    "test:all:cover": "yarn lint && yarn type-check && yarn test:unit:cover && test:e2e"
+    "qa": "yarn lint && yarn type-check && yarn test:unit",
+    "qa:cover": "yarn lint && yarn type-check && yarn test:unit:cover && test:e2e"
   },
   "husky": {
     "hooks": {
