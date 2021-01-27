@@ -1,6 +1,6 @@
 {
   "api": {
-    "Inventarium": {
+    "boilerplate": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -8,15 +8,11 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 30,
-              "description": "api key description"
+              "apiKeyExpirationDays": 7,
+              "description": "boilerplate schema"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }

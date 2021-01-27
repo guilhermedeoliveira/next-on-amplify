@@ -1,5 +1,5 @@
 {
-  "AppSyncApiName": "Inventarium",
+  "AppSyncApiName": "boilerplate",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false
 }
