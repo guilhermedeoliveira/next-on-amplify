@@ -1,14 +1,16 @@
 import * as yup from 'yup'
-import { Form as FormikForm, Formik /* FormikProps */ } from 'formik'
+import { Form as FormikForm, Formik, FormikProps } from 'formik'
 
 import TextField from 'shared/components/TextField'
 import Button from 'shared/components/Button'
 
-// type Values = {
-//   firstName: string
-//   lastName: string
-//   email: string
-// }
+import userRepository from 'api/modules/user/repositories/user.repository'
+
+type Values = {
+  firstName: string
+  lastName: string
+  email: string
+}
 
 const initialValues = {
   firstName: '',
@@ -24,43 +26,41 @@ const schema = yup.object().shape({
 
 const Form = () => (
   <section>
+    <h1 className="text-bold">Create a user</h1>
+
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          actions.setSubmitting(false)
-        }, 1000)
+      onSubmit={async (values, actions) => {
+        actions.setSubmitting(true)
+        await userRepository.insertUser(values)
+        actions.setSubmitting(false)
       }}
     >
-      {
-        (/* props: FormikProps<Values> */) => (
-          <FormikForm>
-            <TextField
-              isRequired
-              name="firstName"
-              type="text"
-              label="First Name"
-              mask="99/99/9999"
-              placeholder="Placeholder Test"
-            />
+      {({ isSubmitting }: FormikProps<Values>) => (
+        <FormikForm>
+          <TextField
+            isRequired
+            name="firstName"
+            type="text"
+            label="First Name"
+            placeholder="Placeholder Test"
+          />
 
-            <TextField
-              name="lastName"
-              type="text"
-              label="Last Name"
-              placeholder="Placeholder Test"
-            />
+          <TextField
+            name="lastName"
+            type="text"
+            label="Last Name"
+            placeholder="Placeholder Test"
+          />
 
-            <TextField name="email" type="email" label="Email" />
+          <TextField name="email" type="email" label="Email" />
 
-            <Button variant="medium" onClick={() => ''}>
-              Submit
-            </Button>
-          </FormikForm>
-        )
-      }
+          <Button variant="medium" onClick={() => ''}>
+            {isSubmitting ? 'Loading...' : 'Submit'}
+          </Button>
+        </FormikForm>
+      )}
     </Formik>
   </section>
 )
